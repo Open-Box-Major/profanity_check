@@ -1,5 +1,6 @@
 import requests
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 
 # Your WebPurify API key (replace with your actual key)
 API_KEY = '27530d0b658daae198b2154a1c01918b'
@@ -8,6 +9,7 @@ API_KEY = '27530d0b658daae198b2154a1c01918b'
 WEBPURIFY_API_URL = "https://api1.webpurify.com/services/rest/"
 
 app = Flask(__name__)
+CORS(app)  # Enable CORS for all routes
 
 def detect_cuss_words(text):
     # Prepare the request parameters
