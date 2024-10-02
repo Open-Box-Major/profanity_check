@@ -9,7 +9,6 @@ WEBPURIFY_API_URL = "https://api1.webpurify.com/services/rest/"
 
 app = Flask(__name__)
 
-
 def detect_cuss_words(text):
     # Prepare the request parameters
     params = {
@@ -34,22 +33,19 @@ def detect_cuss_words(text):
         print("Error:", result['rsp']['err']['msg'])
         return None
 
-
 @app.route('/check_profanity', methods=['GET'])
 def check_profanity():
     message = request.args.get('message')
-    print(message)
     if not message:
         return jsonify({"error": "No message provided"}), 400
 
     result = detect_cuss_words(message)
-    print(result)
 
     if result is None:
         return jsonify({"error": "An error occurred while checking for profanity"}), 500
 
     return jsonify({"contains_profanity": result})
 
-
-if __name__ == '__main__':
-    app.run(debug=True)
+# Remove this line
+# if __name__ == '__main__':
+#     app.run(debug=True)
