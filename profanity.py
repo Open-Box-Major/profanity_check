@@ -3,7 +3,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 # Your WebPurify API key (replace with your actual key)
-API_KEY = '27530d0b658daae198b2154a1c01918b'
+API_KEY = '9393c7611003dff6eab4774245a760b0'
 
 # WebPurify endpoint for checking profanity in text
 WEBPURIFY_API_URL = "https://api1.webpurify.com/services/rest/"
